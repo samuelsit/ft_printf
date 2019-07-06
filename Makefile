@@ -21,11 +21,13 @@ AC	=	ar rc
 
 CC	=	gcc
 
+NAME	=	libftprintf.a
+
 CFLAGS	=	-Wall -Wextra -Werror
 
-OBJ	=	$(SRC:.c=.o)
+RM	=	rm -f
 
-NAME	=	libftprintf.a
+OBJ	=	$(SRC:.c=.o)
 
 all:	$(NAME)
 
@@ -34,9 +36,9 @@ $(NAME):	$(OBJ)
 	ranlib $(NAME)
 
 clean:
-	rm -f $(OBJ)
+	$(RM) $(OBJ)
 
 fclean:	clean
-	rm -f $(NAME)
+	$(RM) $(NAME)
 
 re:	fclean all

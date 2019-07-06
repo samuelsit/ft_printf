@@ -3,14 +3,14 @@
 int		tri_ft(char c)
 {
 	int	i = 0;
-	char	*str;
+	char	*flag;
 
-	str = "discoxXpuSb";
+	flag = "discoxXpuSb";
 	i = 0;
-	while (str[i] != c && str[i] != '\0')
+	while (flag[i] != c && flag[i] != '\0')
 		i++;
-	if (str[i] == '\0')
-		return (84);
+	if (flag[i] == '\0')
+		exit(0);
 	return (i);
 }
 
@@ -29,34 +29,42 @@ static void	tab(int (*tab_ft[NB_OPTIONS])(va_list ap))
 	tab_ft[10] = &ft_printf_b;
 }
 
-int		ft_printf(char const *str, ...)
+#include <stdio.h>
+
+int		ft_printf(const char *str, ...)
 {
 	int	n;
+	int len;
 	int	i;
 	int	(*tab_ft[NB_OPTIONS])(va_list ap);
 	va_list	ap;
 
 	va_start(ap, str);
 	n = 0;
+	len = 0;
 	i = 0;
 	tab(tab_ft);
 	while (str[i])
 	{
 		if (str[i] != '%')
+		{
 			ft_putchar(str[i]);
+			len++;
+		}
 		else if (str[i + 1] == '%')
 		{
 			i++;
+			len++;
 			ft_putchar('%');
 		}
 		else
 		{
 			i++;
 			n = tri_ft(str[i]);
-			tab_ft[n](ap);
+			len += tab_ft[n](ap);
 		}
 		i++;
 	}
 	va_end(ap);
-	return (n);
+	return (len);
 }
