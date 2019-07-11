@@ -6,5 +6,5 @@ int ft_printf_c(va_list ap)
 
 	c = va_arg(ap, int);
 	ft_putchar(c);
-	return (0);
+	return (1);
 }

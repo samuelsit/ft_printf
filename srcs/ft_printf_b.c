@@ -3,8 +3,10 @@
 int ft_printf_b(va_list ap)
 {
 	int nb;
+	int len;
 
+	len = 0;
 	nb = va_arg(ap, int);
-	ft_putnbr_base(nb, "01");
-	return (0);
+	len = ft_putnbr_base(nb, "01");
+	return (len);
 }

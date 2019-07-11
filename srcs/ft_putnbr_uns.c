@@ -3,7 +3,9 @@
 int ft_putnbr_uns(unsigned int nb)
 {
 	unsigned int res;
+	int len;
 
+	len = 0;
 	res = 0;
 	if (nb < 0)
 	{
@@ -13,6 +15,7 @@ int ft_putnbr_uns(unsigned int nb)
 	}
 	if (nb / 10)
 		ft_putnbr_uns(nb / 10);
+	len++;
 	ft_putchar(nb % 10 + '0');
-	return (0);
+	return (len);
 }
