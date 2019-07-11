@@ -2,7 +2,7 @@
 
 int		tri_ft(char c)
 {
-	int	i = 0;
+	int		i;
 	char	*flag;
 
 	flag = "discoxXpuSb";
@@ -34,7 +34,7 @@ int		putspace(int nb)
 	int i;
 
 	i = 0;
-	while (i <= nb)
+	while (i < nb)
 	{
 		ft_putchar(' ');
 		i++;
@@ -53,6 +53,7 @@ int		ft_printf(const char *str, ...)
 	int	i;
 	int	(*tab_ft[NB_OPTIONS])(va_list ap, int display);
 	va_list	ap;
+	va_list aq;
 
 	va_start(ap, str);
 	n = 0;
@@ -78,61 +79,81 @@ int		ft_printf(const char *str, ...)
 			{
 				ft_putchar('%');
 				len++;
+				i++;
 			}
 			else if ((str[i] >= 65 && str[i] <= 90) || (str[i] >= 97 && str[i] <= 122))
 			{
 				n = tri_ft(str[i]);
 				len += tab_ft[n](ap, 1);
+				i++;
 			}
-			if ((str[i] >= 48 && str[i] <= 57) || str[i] == '-' || str[i] == '+')
+			else if (str[i] >= 48 && str[i] <= 57)
 			{
-				if (str[i] == '-')
-				{
+				nbspace = ft_atoi_printf(&str[i]);
+				len += nbspace;
+				while (str[i] >= 48 && str[i] <= 57)
 					i++;
-					nbspace = ft_atoi_printf(&str[i]);
-					len += nbspace;
-					while (str[i] >= 48 && str[i] <= 57)
-						i++;
-					if ((str[i] >= 65 && str[i] <= 90) || (str[i] >= 97 && str[i] <= 122))
-					{
-						n = tri_ft(str[i]);
-						lenmod = tab_ft[n](ap, 1);
-						putspace(nbspace - lenmod);
-					}
-				}
-				if (str[i] == '+')
+				if ((str[i] >= 65 && str[i] <= 90) || (str[i] >= 97 && str[i] <= 122))
 				{
-					i++;
-					nbspace = ft_atoi_printf(&str[i]);
-					len += nbspace;
-					while (str[i] >= 48 && str[i] <= 57)
-						i++;
-					if ((str[i] >= 65 && str[i] <= 90) || (str[i] >= 97 && str[i] <= 122))
-					{
-						n = tri_ft(str[i]);
-						lenmod = tab_ft[n](ap, 0);
-						putspace(nbspace - lenmod);
-						tab_ft[n](ap, 1);
-					}
+					n = tri_ft(str[i]);
+					va_copy(aq, ap);
+					lenmod = tab_ft[n](ap, 0);
+					putspace(nbspace - lenmod);
+					lenmod = tab_ft[n](aq, 1);
 				}
-				else
+				if (str[i] == '%')
 				{
-					i++;
-					nbspace = ft_atoi_printf(&str[i]);
-					len += nbspace;
-					while (str[i] >= 48 && str[i] <= 57)
-						i++;
-					if ((str[i] >= 65 && str[i] <= 90) || (str[i] >= 97 && str[i] <= 122))
-					{
-						n = tri_ft(str[i]);
-						lenmod = tab_ft[n](ap, 0);
-						putspace(nbspace - lenmod);
-						tab_ft[n](ap, 1);
-					}
+					putspace(nbspace - 1);
+					ft_putchar('%');
 				}
+				i++;
+			}
+			else if (str[i] == '+')
+			{
+				i++;
+				nbspace = ft_atoi_printf(&str[i]);
+				len += nbspace;
+				while (str[i] >= 48 && str[i] <= 57)
+					i++;
+				if ((str[i] >= 65 && str[i] <= 90) || (str[i] >= 97 && str[i] <= 122))
+				{
+					n = tri_ft(str[i]);
+					va_copy(aq, ap);
+					lenmod = tab_ft[n](ap, 0) + 1;
+					putspace(nbspace - lenmod);
+					ft_putchar('+');
+					lenmod = tab_ft[n](aq, 1);
+				}
+				if (str[i] == '%')
+				{
+					putspace(nbspace - 1);
+					ft_putchar('%');
+				}
+				i++;
+			}
+			else if (str[i] == '-')
+			{
+				i++;
+				nbspace = ft_atoi_printf(&str[i]);
+				len += nbspace;
+				while (str[i] >= 48 && str[i] <= 57)
+					i++;
+				if ((str[i] >= 65 && str[i] <= 90) || (str[i] >= 97 && str[i] <= 122))
+				{
+					n = tri_ft(str[i]);
+					lenmod = tab_ft[n](ap, 1);
+					putspace(nbspace - lenmod);
+				}
+				if (str[i] == '%')
+				{
+					ft_putchar('%');
+					putspace(nbspace - 1);
+				}
+				i++;
 			}
 		}
 	}
 	va_end(ap);
+	va_end(aq);
 	return (len);
 }

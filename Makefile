@@ -1,9 +1,9 @@
 SRC	=	srcs/ft_putchar.c	\
-		srcs/ft_putnbr_base.c	\
+		srcs/ft_putnbr_base_printf.c	\
 		srcs/ft_strlen.c	\
-		srcs/ft_putnbr_uns.c	\
+		srcs/ft_putnbr_uns_printf.c	\
 		srcs/ft_putstr.c	\
-		srcs/ft_putnbr.c	\
+		srcs/ft_putnbr_printf.c	\
 		srcs/ft_printf.c	\
 		srcs/ft_printf_b.c	\
 		srcs/ft_printf_c.c	\

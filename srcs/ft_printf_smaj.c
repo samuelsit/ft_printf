@@ -1,6 +1,6 @@
 #include "../includes/ft_printf.h"
 
-int ft_printf_smaj(va_list ap)
+int ft_printf_smaj(va_list ap, int display)
 {
 	char *str;
 	int i;
@@ -13,16 +13,28 @@ int ft_printf_smaj(va_list ap)
 	{
 		if (str[i] < 32 || str[i] == 127)
 		{
-			len++;
-			ft_putchar('\\');
-			if (str[i] < 8)
-				ft_putstr("00");
-			else
-				ft_putstr("0");
-			ft_putnbr_base(str[i], "01234567");
+			if (display == 1)
+			{
+				len++;
+				ft_putchar('\\');
+				if (str[i] < 8)
+				{
+					ft_putstr("00");
+					len += 2;
+				}
+				else
+				{
+					ft_putchar('0');
+					len++;
+				}
+			}
+			len += ft_putnbr_base_printf(str[i], "01234567", display);
 		}
 		else
-			ft_putchar(str[i]);
+		{
+			if (display == 1)
+				ft_putchar(str[i]);
+		}
 		i++;
 		len++;
 	}

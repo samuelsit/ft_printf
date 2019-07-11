@@ -1,10 +1,11 @@
 #include "../includes/ft_printf.h"
 
-int ft_printf_c(va_list ap)
+int ft_printf_c(va_list ap, int display)
 {
 	char c;
 
 	c = va_arg(ap, int);
-	ft_putchar(c);
+	if (display == 1)
+		ft_putchar(c);
 	return (1);
 }
