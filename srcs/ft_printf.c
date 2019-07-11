@@ -14,7 +14,7 @@ int		tri_ft(char c)
 	return (i);
 }
 
-static void	tab(int (*tab_ft[NB_OPTIONS])(va_list ap))
+static void	tab(int (*tab_ft[NB_OPTIONS])(va_list ap, int display))
 {
 	tab_ft[0] = &ft_printf_d;
 	tab_ft[1] = &ft_printf_i;
@@ -29,18 +29,35 @@ static void	tab(int (*tab_ft[NB_OPTIONS])(va_list ap))
 	tab_ft[10] = &ft_printf_b;
 }
 
+int		putspace(int nb)
+{
+	int i;
+
+	i = 0;
+	while (i <= nb)
+	{
+		ft_putchar(' ');
+		i++;
+	}
+	return (i);
+}
+
 #include <stdio.h>
 
 int		ft_printf(const char *str, ...)
 {
+	int nbspace;
+	int lenmod;
 	int	n;
 	int len;
 	int	i;
-	int	(*tab_ft[NB_OPTIONS])(va_list ap);
+	int	(*tab_ft[NB_OPTIONS])(va_list ap, int display);
 	va_list	ap;
 
 	va_start(ap, str);
 	n = 0;
+	lenmod = 0;
+	nbspace = 0;
 	len = 0;
 	i = 0;
 	tab(tab_ft);
@@ -50,20 +67,71 @@ int		ft_printf(const char *str, ...)
 		{
 			ft_putchar(str[i]);
 			len++;
+			i++;
 		}
-		else if (str[i + 1] == '%')
+		if (str[i] == '%')
 		{
 			i++;
-			len++;
-			ft_putchar('%');
+			while (str[i] == 32)
+				i++;
+			if (str[i] == '%')
+			{
+				ft_putchar('%');
+				len++;
+			}
+			else if ((str[i] >= 65 && str[i] <= 90) || (str[i] >= 97 && str[i] <= 122))
+			{
+				n = tri_ft(str[i]);
+				len += tab_ft[n](ap, 1);
+			}
+			if ((str[i] >= 48 && str[i] <= 57) || str[i] == '-' || str[i] == '+')
+			{
+				if (str[i] == '-')
+				{
+					i++;
+					nbspace = ft_atoi_printf(&str[i]);
+					len += nbspace;
+					while (str[i] >= 48 && str[i] <= 57)
+						i++;
+					if ((str[i] >= 65 && str[i] <= 90) || (str[i] >= 97 && str[i] <= 122))
+					{
+						n = tri_ft(str[i]);
+						lenmod = tab_ft[n](ap, 1);
+						putspace(nbspace - lenmod);
+					}
+				}
+				if (str[i] == '+')
+				{
+					i++;
+					nbspace = ft_atoi_printf(&str[i]);
+					len += nbspace;
+					while (str[i] >= 48 && str[i] <= 57)
+						i++;
+					if ((str[i] >= 65 && str[i] <= 90) || (str[i] >= 97 && str[i] <= 122))
+					{
+						n = tri_ft(str[i]);
+						lenmod = tab_ft[n](ap, 0);
+						putspace(nbspace - lenmod);
+						tab_ft[n](ap, 1);
+					}
+				}
+				else
+				{
+					i++;
+					nbspace = ft_atoi_printf(&str[i]);
+					len += nbspace;
+					while (str[i] >= 48 && str[i] <= 57)
+						i++;
+					if ((str[i] >= 65 && str[i] <= 90) || (str[i] >= 97 && str[i] <= 122))
+					{
+						n = tri_ft(str[i]);
+						lenmod = tab_ft[n](ap, 0);
+						putspace(nbspace - lenmod);
+						tab_ft[n](ap, 1);
+					}
+				}
+			}
 		}
-		else
-		{
-			i++;
-			n = tri_ft(str[i]);
-			len += tab_ft[n](ap);
-		}
-		i++;
 	}
 	va_end(ap);
 	return (len);

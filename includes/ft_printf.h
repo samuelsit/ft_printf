@@ -6,6 +6,7 @@
 # include <stdarg.h>
 # define NB_OPTIONS 11
 
+int				ft_atoi_printf(const char *str);
 size_t	ft_strlen(const char *s);
 int	ft_putnbr(int n);
 int	ft_putnbr_uns(unsigned int nb);

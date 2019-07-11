@@ -15,7 +15,8 @@ SRC	=	srcs/ft_putchar.c	\
 		srcs/ft_printf_smaj.c	\
 		srcs/ft_printf_u.c	\
 		srcs/ft_printf_x.c	\
-		srcs/ft_printf_xmaj.c
+		srcs/ft_printf_xmaj.c	\
+		srcs/ft_atoi_printf.c
 
 AC	=	ar rc
 
