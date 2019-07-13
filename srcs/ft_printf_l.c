@@ -58,5 +58,9 @@ int ft_printf_l(va_list ap, int display)
         ft_printf_l_display(n);
     else
         ft_printf_l_hide(n);
+    if (n >= 0)
+		return (len);
+	else
+		return (len + 1);
     return (len);
 }

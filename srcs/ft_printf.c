@@ -82,25 +82,28 @@ int		ft_printf(const char *str, ...)
 				len++;
 				i++;
 			}
-			else if (str[i] == 'l' && str[i + 1] > 32)
+			else if (str[i] == 'l' && str[i + 1] > ' ')
 			{
-				n = tri_ft(str[i]);
-				len += tab_ft[n](ap, 1);
-				i += 2;
+				if (str[i + 1] == 'd' || str[i + 1] == 'i')
+				{
+					n = tri_ft(str[i]);
+					len += tab_ft[n](ap, 1);
+					i += 2;
+				}
 			}
-			else if ((str[i] >= 65 && str[i] <= 90) || (str[i] >= 97 && str[i] <= 122))
+			else if ((str[i] >= 'a' && str[i] <= 'z') || (str[i] >= 'A' && str[i] <= 'Z'))
 			{
 				n = tri_ft(str[i]);
 				len += tab_ft[n](ap, 1);
 				i++;
 			}
-			else if (str[i] >= 48 && str[i] <= 57)
+			else if (str[i] >= '0' && str[i] <= '9')
 			{
 				nbspace = ft_atoi_printf(&str[i]);
 				len += nbspace;
-				while (str[i] >= 48 && str[i] <= 57)
+				while (str[i] >= '0' && str[i] <= '9')
 					i++;
-				if ((str[i] >= 65 && str[i] <= 90) || (str[i] >= 97 && str[i] <= 122))
+				if ((str[i] >= 'a' && str[i] <= 'z') || (str[i] >= 'A' && str[i] <= 'Z'))
 				{
 					n = tri_ft(str[i]);
 					va_copy(aq, ap);
@@ -120,9 +123,9 @@ int		ft_printf(const char *str, ...)
 				i++;
 				nbspace = ft_atoi_printf(&str[i]);
 				len += nbspace;
-				while (str[i] >= 48 && str[i] <= 57)
+				while (str[i] >= '0' && str[i] <= '9')
 					i++;
-				if ((str[i] >= 65 && str[i] <= 90) || (str[i] >= 97 && str[i] <= 122))
+				if ((str[i] >= 'a' && str[i] <= 'z') || (str[i] >= 'A' && str[i] <= 'Z'))
 				{
 					n = tri_ft(str[i]);
 					va_copy(aq, ap);
@@ -143,9 +146,9 @@ int		ft_printf(const char *str, ...)
 				i++;
 				nbspace = ft_atoi_printf(&str[i]);
 				len += nbspace;
-				while (str[i] >= 48 && str[i] <= 57)
+				while (str[i] >= '0' && str[i] <= '9')
 					i++;
-				if ((str[i] >= 65 && str[i] <= 90) || (str[i] >= 97 && str[i] <= 122))
+				if ((str[i] >= 'a' && str[i] <= 'z') || (str[i] >= 'A' && str[i] <= 'Z'))
 				{
 					n = tri_ft(str[i]);
 					lenmod = tab_ft[n](ap, 1);
