@@ -8,5 +8,8 @@ int ft_printf_d(va_list ap, int display)
 	len = 0;
 	nb = va_arg(ap, int);
 	len = ft_putnbr_printf(nb, display);
-	return (len);
+	if (nb >= 0)
+		return (len);
+	else
+		return (len + 1);
 }
