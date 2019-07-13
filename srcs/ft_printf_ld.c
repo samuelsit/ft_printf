@@ -1,6 +1,6 @@
 #include "../includes/ft_printf.h"
 
-int ft_printf_l_display(long int n)
+int ft_printf_ld_display(long int n)
 {
 	int len;
 
@@ -12,12 +12,12 @@ int ft_printf_l_display(long int n)
     }
     len++;
     if (n / 10)
-        ft_printf_l_display(n / 10);
+        ft_printf_ld_display(n / 10);
     ft_putchar(n % 10 + '0');
     return (len);
 }
 
-int ft_printf_l_hide(long int n)
+int ft_printf_ld_hide(long int n)
 {
 	int len;
 
@@ -28,7 +28,7 @@ int ft_printf_l_hide(long int n)
     }
     len++;
     if (n / 10)
-        ft_printf_l_hide(n / 10);
+        ft_printf_ld_hide(n / 10);
     return (len);
 }
 
@@ -45,7 +45,7 @@ int lennb(long int n)
     return (i);
 }
 
-int ft_printf_l(va_list ap, int display)
+int ft_printf_ld(va_list ap, int display)
 {
     int len;
     long int n;
@@ -55,9 +55,9 @@ int ft_printf_l(va_list ap, int display)
     n = va_arg(ap, long int);
     len = lennb(n);
     if (display == 1)
-        ft_printf_l_display(n);
+        ft_printf_ld_display(n);
     else
-        ft_printf_l_hide(n);
+        ft_printf_ld_hide(n);
     if (n >= 0)
 		return (len);
 	else
