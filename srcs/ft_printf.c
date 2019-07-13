@@ -5,7 +5,7 @@ int		tri_ft(char c)
 	int		i;
 	char	*flag;
 
-	flag = "discoxXpuSb";
+	flag = "discoxXpuSbl";
 	i = 0;
 	while (flag[i] != c && flag[i] != '\0')
 		i++;
@@ -27,6 +27,7 @@ static void	tab(int (*tab_ft[NB_OPTIONS])(va_list ap, int display))
 	tab_ft[8] = &ft_printf_u;
 	tab_ft[9] = &ft_printf_smaj;
 	tab_ft[10] = &ft_printf_b;
+	tab_ft[11] = &ft_printf_l;
 }
 
 int		putspace(int nb)
@@ -80,6 +81,12 @@ int		ft_printf(const char *str, ...)
 				ft_putchar('%');
 				len++;
 				i++;
+			}
+			else if (str[i] == 'l' && str[i + 1] > 32)
+			{
+				n = tri_ft(str[i]);
+				len += tab_ft[n](ap, 1);
+				i += 2;
 			}
 			else if ((str[i] >= 65 && str[i] <= 90) || (str[i] >= 97 && str[i] <= 122))
 			{

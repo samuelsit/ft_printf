@@ -7,12 +7,11 @@ int	main(int ac, char **av)
   char	*str = "astek";
   char	stre[] = {'a', 's', 10, 'e', 'k', 0};
 
-  int n = printf("ft = %+5% end\n");
-  int n1 = ft_printf("my = %+5% end\n");
+  int n = printf("ft = %ld %ld end\n", 1234566667890987, 1234566667890987);
+  int n1 = ft_printf("my = %ld %ld end\n", 1234566667890987, 1234566667890987);
 
 
   printf("ft = %d, my = %d\n", n, n1);
-  ft_printf("my = %d\n", n1);
 
   return(0);
 }

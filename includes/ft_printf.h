@@ -4,7 +4,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdarg.h>
-# define NB_OPTIONS 11
+# define NB_OPTIONS 12
 
 int				ft_atoi_printf(const char *str);
 size_t	ft_strlen(const char *s);
@@ -14,6 +14,7 @@ void	ft_putchar(char c);
 void	ft_putstr(char const *s);
 int ft_putnbr_base_printf(long long nbr, char const *base, int display);
 int	ft_printf(char const *str, ...);
+int ft_printf_l(va_list ap, int display);
 int	ft_printf_b(va_list ap, int display);
 int	ft_printf_c(va_list ap, int display);
 int	ft_printf_d(va_list ap, int display);
