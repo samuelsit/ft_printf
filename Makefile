@@ -1,23 +1,25 @@
-SRC	=	srcs/ft_putchar.c	\
-		srcs/ft_putnbr_base_printf.c	\
-		srcs/ft_strlen.c	\
-		srcs/ft_putnbr_uns_printf.c	\
-		srcs/ft_putstr.c	\
-		srcs/ft_putnbr_printf.c	\
+SRC	=	srcs/utils/ft_putchar.c	\
+		srcs/utils/ft_putnbr_base_printf.c	\
+		srcs/utils/ft_strlen.c	\
+		srcs/utils/ft_putnbr_uns_printf.c	\
+		srcs/utils/ft_putstr.c	\
+		srcs/utils/ft_putnbr_printf.c	\
+		srcs/utils/ft_atoi_printf.c	\
+		srcs/flags/ft_printf_b.c	\
+		srcs/flags/ft_printf_c.c	\
+		srcs/flags/ft_printf_d.c	\
+		srcs/flags/ft_printf_o.c	\
+		srcs/flags/ft_printf_p.c	\
+		srcs/flags/ft_printf_s.c	\
+		srcs/flags/ft_printf_smaj.c	\
+		srcs/flags/ft_printf_u.c	\
+		srcs/flags/ft_printf_x.c	\
+		srcs/flags/ft_printf_xmaj.c	\
+		srcs/flags/ft_printf_ld.c	\
+		srcs/flags/ft_printf_lo.c	\
+		srcs/flags/ft_printf_lx.c	\
 		srcs/ft_printf.c	\
-		srcs/ft_printf_b.c	\
-		srcs/ft_printf_c.c	\
-		srcs/ft_printf_d.c	\
-		srcs/ft_printf_o.c	\
-		srcs/ft_printf_p.c	\
-		srcs/ft_printf_s.c	\
-		srcs/ft_printf_smaj.c	\
-		srcs/ft_printf_u.c	\
-		srcs/ft_printf_x.c	\
-		srcs/ft_printf_xmaj.c	\
-		srcs/ft_printf_ld.c	\
-		srcs/ft_printf_lo.c	\
-		srcs/ft_atoi_printf.c
+		srcs/tri_ft.c
 
 AC	=	ar rc
 

@@ -13,7 +13,7 @@ int	ft_putnbr_uns_printf(unsigned int nb, int display);
 void	ft_putchar(char c);
 void	ft_putstr(char const *s);
 int ft_putnbr_base_printf(long long nbr, char const *base, int display);
-int	ft_printf(char const *str, ...);
+int ft_printf_lx(va_list ap, int display);
 int ft_printf_lo(va_list ap, int display);
 int ft_printf_ld(va_list ap, int display);
 int	ft_printf_b(va_list ap, int display);
@@ -26,5 +26,9 @@ int	ft_printf_s(va_list ap, int display);
 int	ft_printf_u(va_list ap, int display);
 int	ft_printf_xmaj(va_list ap, int display);
 int	ft_printf_x(va_list ap, int display);
+int	ft_printf(char const *str, ...);
+int		tri_long_ft(char c);
+int		tri_ft(char c);
+void	tab(int (*tab_ft[NB_OPTIONS])(va_list ap, int display));
 
 #endif
