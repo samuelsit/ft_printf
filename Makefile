@@ -19,7 +19,9 @@ SRC	=	srcs/utils/ft_putchar.c	\
 		srcs/flags/ft_printf_lo.c	\
 		srcs/flags/ft_printf_lx.c	\
 		srcs/ft_printf.c	\
-		srcs/tri_ft.c
+		srcs/tri_ft.c	\
+		srcs/init_tab.c	\
+		srcs/flag1.c
 
 AC	=	ar rc
 

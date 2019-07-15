@@ -1,6 +1,7 @@
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
+#include <stdio.h>
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdarg.h>
@@ -30,5 +31,12 @@ int	ft_printf(char const *str, ...);
 int		tri_long_ft(char c);
 int		tri_ft(char c);
 void	tab(int (*tab_ft[NB_OPTIONS])(va_list ap, int display));
+int	    flag_mod(int *i);
+int		flag_less(const char *str, int *i, va_list ap, int (*tab_ft[NB_OPTIONS])(va_list ap, int display));
+int		flag_more(const char *str, int *i, va_list ap, int (*tab_ft[NB_OPTIONS])(va_list ap, int display));
+int		flag_nb(const char *str, int *i, va_list ap, int (*tab_ft[NB_OPTIONS])(va_list ap, int display));
+int		flag_long(const char *str, int *i, va_list ap, int (*tab_ft[NB_OPTIONS])(va_list ap, int display));
+int		flag(const char *str, int *i, va_list ap, int (*tab_ft[NB_OPTIONS])(va_list ap, int display));
+int		putspace(int nb);
 
 #endif
