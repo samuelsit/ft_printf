@@ -2,11 +2,9 @@
 
 int ft_putnbr_uns_printf(unsigned int nb, int display)
 {
-	unsigned int res;
 	int len;
 
 	len = 0;
-	res = 0;
 	if (nb / 10)
 		ft_putnbr_uns_printf(nb / 10, display);
 	len++;
