@@ -44,6 +44,7 @@ int		flag_nb(const char *str, int *i, va_list ap, int (*tab_ft[NB_OPTIONS])(va_l
 	va_list aq;
 	int len;
 	int lenmod;
+	int is_zero;
 
 	n = 0;
 	len = 0;
@@ -51,6 +52,9 @@ int		flag_nb(const char *str, int *i, va_list ap, int (*tab_ft[NB_OPTIONS])(va_l
 	lenmod = 0;
 	nbspace = ft_atoi_printf(&str[*i]);
 	len += nbspace;
+	is_zero = 0;
+	if (str[*i] == '0')
+		is_zero = 1;
 	while (str[*i] >= '0' && str[*i] <= '9')
 		(*i)++;
 	if ((str[*i] >= 'a' && str[*i] <= 'z') || (str[*i] >= 'A' && str[*i] <= 'Z'))
@@ -58,12 +62,18 @@ int		flag_nb(const char *str, int *i, va_list ap, int (*tab_ft[NB_OPTIONS])(va_l
 		n = tri_ft(str[*i]);
 		va_copy(aq, ap);
 		lenmod = tab_ft[n](ap, 0);
-		putspace(nbspace - lenmod);
-		lenmod = tab_ft[n](aq, 1);
+		if (is_zero == 1)
+			putnchar_flag(nbspace - lenmod, '0');
+		else
+			putnchar_flag(nbspace - lenmod, ' ');
+		if (nbspace > lenmod)
+			lenmod = tab_ft[n](aq, 1);
+		else
+			len = tab_ft[n](aq, 1);
 	}
 	if (str[*i] == '%')
 	{
-		putspace(nbspace - 1);
+		putnchar_flag(nbspace - 1, ' ');
 		ft_putchar('%');
 	}
 	(*i)++;
@@ -93,13 +103,16 @@ int		flag_more(const char *str, int *i, va_list ap, int (*tab_ft[NB_OPTIONS])(va
 		n = tri_ft(str[*i]);
 		va_copy(aq, ap);
 		lenmod = tab_ft[n](ap, 0) + 1;
-		putspace(nbspace - lenmod);
+		putnchar_flag(nbspace - lenmod, ' ');
 		ft_putchar('+');
-		lenmod = tab_ft[n](aq, 1);
+		if (nbspace > lenmod)
+			lenmod = tab_ft[n](aq, 1);
+		else
+			len = tab_ft[n](aq, 1);
 	}
 	if (str[*i] == '%')
 	{
-		putspace(nbspace - 1);
+		putnchar_flag(nbspace - 1, ' ');
 		ft_putchar('%');
 	}
 	(*i)++;
@@ -127,13 +140,18 @@ int		flag_less(const char *str, int *i, va_list ap, int (*tab_ft[NB_OPTIONS])(va
 	if ((str[*i] >= 'a' && str[*i] <= 'z') || (str[*i] >= 'A' && str[*i] <= 'Z'))
 	{
 		n = tri_ft(str[*i]);
-		lenmod = tab_ft[n](ap, 1);
-		putspace(nbspace - lenmod);
+		va_copy(aq, ap);
+		lenmod = tab_ft[n](ap, 0);
+		if (nbspace > lenmod)
+			lenmod = tab_ft[n](aq, 1);
+		else
+			len = tab_ft[n](aq, 1);
+		putnchar_flag(nbspace - lenmod, ' ');
 	}
 	if (str[*i] == '%')
 	{
 		ft_putchar('%');
-		putspace(nbspace - 1);
+		putnchar_flag(nbspace - 1, ' ');
 	}
 	(*i)++;
 	va_end(aq);

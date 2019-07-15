@@ -37,6 +37,6 @@ int		flag_more(const char *str, int *i, va_list ap, int (*tab_ft[NB_OPTIONS])(va
 int		flag_nb(const char *str, int *i, va_list ap, int (*tab_ft[NB_OPTIONS])(va_list ap, int display));
 int		flag_long(const char *str, int *i, va_list ap, int (*tab_ft[NB_OPTIONS])(va_list ap, int display));
 int		flag(const char *str, int *i, va_list ap, int (*tab_ft[NB_OPTIONS])(va_list ap, int display));
-int		putspace(int nb);
+int		putnchar_flag(int nb, char c);
 
 #endif

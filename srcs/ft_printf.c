@@ -1,13 +1,13 @@
 #include "../includes/ft_printf.h"
 
-int		putspace(int nb)
+int		putnchar_flag(int nb, char c)
 {
 	int i;
 
 	i = 0;
 	while (i < nb)
 	{
-		ft_putchar(' ');
+		ft_putchar(c);
 		i++;
 	}
 	return (i);
