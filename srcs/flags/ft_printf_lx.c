@@ -6,7 +6,7 @@ int ft_printf_lx(va_list ap, int display)
 	int len;
 
 	len = 0;
-	nb = va_arg(ap, long int);
+	nb = va_arg(ap, long);
 	len = ft_putnbr_base_printf(nb, "0123456789abcdef", display);
 	return (len);
 }

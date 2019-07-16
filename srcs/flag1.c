@@ -11,7 +11,7 @@ int		flag_mod(int *i)
 	return (len);
 }
 
-int		flag(const char *str, int *i, va_list ap, int (*tab_ft[NB_OPTIONS])(va_list ap, int display))
+int		flag_letter(const char *str, int *i, va_list ap, int (*tab_ft[NB_OPTIONS])(va_list ap, int display))
 {
 	int n;
 	int len;
@@ -55,6 +55,8 @@ int		flag_nb(const char *str, int *i, va_list ap, int (*tab_ft[NB_OPTIONS])(va_l
 	is_zero = 0;
 	if (str[*i] == '0')
 		is_zero = 1;
+	while (str[*i] == ' ')
+		(*i)++;
 	while (str[*i] >= '0' && str[*i] <= '9')
 		(*i)++;
 	if ((str[*i] >= 'a' && str[*i] <= 'z') || (str[*i] >= 'A' && str[*i] <= 'Z'))

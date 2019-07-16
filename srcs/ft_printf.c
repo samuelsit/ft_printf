@@ -29,7 +29,7 @@ int 	do_flag(const char *str, int *i, va_list ap, int (*tab_ft[NB_OPTIONS])(va_l
 	else if (str[*i] == '-')
 		len = flag_less(str, i, ap, tab_ft);
 	else if ((str[*i] >= 'a' && str[*i] <= 'z') || (str[*i] >= 'A' && str[*i] <= 'Z'))
-		len = flag(str, i, ap, tab_ft);
+		len = flag_letter(str, i, ap, tab_ft);
 	return (len);
 }
 

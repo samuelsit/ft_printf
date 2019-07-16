@@ -3,8 +3,8 @@
 
 int main()
 {
-    int real = printf("%04x\n",542);
-    int mine = ft_printf("%04x\n",542);
+    int real = printf("p%f\n",542.123);
+    int mine = ft_printf("m%f\n",542.123);
 
     printf("real = %d\nmine = %d\n", real, mine);
     return (0);

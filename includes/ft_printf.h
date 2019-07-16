@@ -5,7 +5,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdarg.h>
-# define NB_OPTIONS 14
+# define NB_OPTIONS 16
 
 int				ft_atoi_printf(const char *str);
 size_t	ft_strlen(const char *s);
@@ -14,6 +14,8 @@ int	ft_putnbr_uns_printf(unsigned int nb, int display);
 void	ft_putchar(char c);
 void	ft_putstr(char const *s);
 int ft_putnbr_base_printf(long long nbr, char const *base, int display);
+int	ft_putnbr_printf_float(double n, int display);
+int ft_printf_f(va_list ap, int display);
 int ft_printf_lx(va_list ap, int display);
 int ft_printf_lo(va_list ap, int display);
 int ft_printf_ld(va_list ap, int display);
@@ -36,7 +38,7 @@ int		flag_less(const char *str, int *i, va_list ap, int (*tab_ft[NB_OPTIONS])(va
 int		flag_more(const char *str, int *i, va_list ap, int (*tab_ft[NB_OPTIONS])(va_list ap, int display));
 int		flag_nb(const char *str, int *i, va_list ap, int (*tab_ft[NB_OPTIONS])(va_list ap, int display));
 int		flag_long(const char *str, int *i, va_list ap, int (*tab_ft[NB_OPTIONS])(va_list ap, int display));
-int		flag(const char *str, int *i, va_list ap, int (*tab_ft[NB_OPTIONS])(va_list ap, int display));
+int		flag_letter(const char *str, int *i, va_list ap, int (*tab_ft[NB_OPTIONS])(va_list ap, int display));
 int		putnchar_flag(int nb, char c);
 
 #endif
