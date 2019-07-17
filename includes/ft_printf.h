@@ -5,8 +5,8 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdarg.h>
-# define NB_OPTIONS 16
-# define NO_TRONC   -1234567890
+# define NB_OPTIONS 15
+# define NO_TRONC   99999999
 
 int				ft_atoi_printf(const char *str);
 int	len_nbr(int n);

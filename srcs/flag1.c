@@ -100,17 +100,21 @@ int		flag_more(const char *str, int *i, va_list ap, int (*tab_ft[NB_OPTIONS])(va
 	len += nbspace;
 	while (str[*i] >= '0' && str[*i] <= '9')
 		(*i)++;
+		while (str[*i] == 32)
+			(*i)++;
 	if ((str[*i] >= 'a' && str[*i] <= 'z') || (str[*i] >= 'A' && str[*i] <= 'Z'))
 	{
+
 		n = tri_ft(str[*i]);
 		va_copy(aq, ap);
 		lenmod = tab_ft[n](ap, 0, NO_TRONC) + 1;
 		putnchar_flag(nbspace - lenmod, ' ');
 		ft_putchar('+');
+		len++;
 		if (nbspace > lenmod)
 			lenmod = tab_ft[n](aq, 1, NO_TRONC);
 		else
-			len = tab_ft[n](aq, 1, NO_TRONC);
+			len += tab_ft[n](aq, 1, NO_TRONC);
 	}
 	if (str[*i] == '%')
 	{
@@ -166,6 +170,11 @@ int		flag_dot(const char *str, int *i, va_list ap, int (*tab_ft[NB_OPTIONS])(va_
 
 	tronc = ft_atoi_printf(&str[*i + 1]);
 	*i += len_nbr(tronc) + 1;
+	if (str[*i] == '%')
+	{
+		ft_putchar('%');
+		return (1);
+	}
 	n = tri_ft(str[*i]);
 	len = tab_ft[n](ap, 1, tronc);
 	(*i)++;

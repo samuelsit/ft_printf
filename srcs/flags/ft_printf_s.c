@@ -6,7 +6,7 @@ int ft_printf_s(va_list ap, int display, int tronc)
 	char	*str;
 
 	str = va_arg(ap, char *);
-	if (tronc != NO_TRONC)
+	if (tronc != NO_TRONC && tronc != 0)
 	{
 		if (display == 1)
 			n = ft_putstr_tronc(str, tronc);
