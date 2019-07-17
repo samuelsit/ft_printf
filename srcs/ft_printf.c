@@ -13,13 +13,15 @@ int		putnchar_flag(int nb, char c)
 	return (i);
 }
 
-int 	do_flag(const char *str, int *i, va_list ap, int (*tab_ft[NB_OPTIONS])(va_list ap, int display))
+int 	do_flag(const char *str, int *i, va_list ap, int (*tab_ft[NB_OPTIONS])(va_list ap, int display, int tronc))
 {
 	int len;
 
 	len = 0;
 	if (str[*i] == 'l' && str[*i + 1] > 32)
 		len = flag_long(str, i, ap, tab_ft);
+	else if (str[*i] == '.')
+		len = flag_dot(str, i, ap, tab_ft);
 	else if (str[*i] == '%')
 		len = flag_mod(i);
 	else if (str[*i] >= '0' && str[*i] <= '9')
@@ -42,7 +44,7 @@ int		if_nomod(const char *str, int *i)
 
 int		if_mod(const char *str, int *i, va_list ap)
 {
-	int	(*tab_ft[NB_OPTIONS])(va_list ap, int display);
+	int	(*tab_ft[NB_OPTIONS])(va_list ap, int display, int tronc);
 	int len;
 
 	len = 0;

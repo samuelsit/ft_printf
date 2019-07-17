@@ -3,9 +3,9 @@
 
 int main()
 {
-    int real = printf("p%f\n",542.123);
-    int mine = ft_printf("m%f\n",542.123);
+    int real = printf("cool %.2s salut ca va\n", "okisncenin");
+    int mine = ft_printf("cool %.2s salut ca va\n", "okisncenin");
 
-    printf("real = %d\nmine = %d\n", real, mine);
+    printf("real =%d mine =%d\n", real, mine);
     return (0);
 }

@@ -1,6 +1,6 @@
 #include "../../includes/ft_printf.h"
 
-int ft_printf_c(va_list ap, int display)
+int ft_printf_c(va_list ap, int display, int tronc)
 {
 	char c;
 

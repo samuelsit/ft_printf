@@ -1,6 +1,6 @@
 #include "../../includes/ft_printf.h"
 
-int	ft_putnbr_hide(int n)
+int	len_nbr(int n)
 {
 	int len;
 
@@ -18,7 +18,7 @@ int	ft_putnbr_display(int n)
 	int unit;
 	int len;
 
-	len = ft_putnbr_hide(n);
+	len = len_nbr(n);
 	if (n < 0)
 	{
 		ft_putchar('-');
@@ -48,6 +48,6 @@ int	ft_putnbr_printf(int n, int display)
 	if (display == 1)
 		len = ft_putnbr_display(n);
 	else
-		len = ft_putnbr_hide(n);
+		len = len_nbr(n);
 	return (len);
 }

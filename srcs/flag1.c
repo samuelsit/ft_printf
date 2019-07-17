@@ -11,7 +11,7 @@ int		flag_mod(int *i)
 	return (len);
 }
 
-int		flag_letter(const char *str, int *i, va_list ap, int (*tab_ft[NB_OPTIONS])(va_list ap, int display))
+int		flag_letter(const char *str, int *i, va_list ap, int (*tab_ft[NB_OPTIONS])(va_list ap, int display, int tronc))
 {
 	int n;
 	int len;
@@ -19,12 +19,12 @@ int		flag_letter(const char *str, int *i, va_list ap, int (*tab_ft[NB_OPTIONS])(
 	n = 0;
 	len = 0;
 	n = tri_ft(str[*i]);
-	len = tab_ft[n](ap, 1);
+	len = tab_ft[n](ap, 1, NO_TRONC);
 	(*i)++;
 	return (len);
 }
 
-int		flag_long(const char *str, int *i, va_list ap, int (*tab_ft[NB_OPTIONS])(va_list ap, int display))
+int		flag_long(const char *str, int *i, va_list ap, int (*tab_ft[NB_OPTIONS])(va_list ap, int display, int tronc))
 {
 	int n;
 	int len;
@@ -32,12 +32,12 @@ int		flag_long(const char *str, int *i, va_list ap, int (*tab_ft[NB_OPTIONS])(va
 	n = 0;
 	len = 0;
 	n = tri_long_ft(str[*i + 1]);
-	len += tab_ft[n](ap, 1);
+	len += tab_ft[n](ap, 1, NO_TRONC);
 	*i += 2;
 	return (len);
 }
 
-int		flag_nb(const char *str, int *i, va_list ap, int (*tab_ft[NB_OPTIONS])(va_list ap, int display))
+int		flag_nb(const char *str, int *i, va_list ap, int (*tab_ft[NB_OPTIONS])(va_list ap, int display, int tronc))
 {
 	int n;
 	int nbspace;
@@ -63,15 +63,15 @@ int		flag_nb(const char *str, int *i, va_list ap, int (*tab_ft[NB_OPTIONS])(va_l
 	{
 		n = tri_ft(str[*i]);
 		va_copy(aq, ap);
-		lenmod = tab_ft[n](ap, 0);
+		lenmod = tab_ft[n](ap, 0, NO_TRONC);
 		if (is_zero == 1)
 			putnchar_flag(nbspace - lenmod, '0');
 		else
 			putnchar_flag(nbspace - lenmod, ' ');
 		if (nbspace > lenmod)
-			lenmod = tab_ft[n](aq, 1);
+			lenmod = tab_ft[n](aq, 1, NO_TRONC);
 		else
-			len = tab_ft[n](aq, 1);
+			len = tab_ft[n](aq, 1, NO_TRONC);
 	}
 	if (str[*i] == '%')
 	{
@@ -83,7 +83,7 @@ int		flag_nb(const char *str, int *i, va_list ap, int (*tab_ft[NB_OPTIONS])(va_l
 	return (len);
 }
 
-int		flag_more(const char *str, int *i, va_list ap, int (*tab_ft[NB_OPTIONS])(va_list ap, int display))
+int		flag_more(const char *str, int *i, va_list ap, int (*tab_ft[NB_OPTIONS])(va_list ap, int display, int tronc))
 {
 	int n;
 	int nbspace;
@@ -104,13 +104,13 @@ int		flag_more(const char *str, int *i, va_list ap, int (*tab_ft[NB_OPTIONS])(va
 	{
 		n = tri_ft(str[*i]);
 		va_copy(aq, ap);
-		lenmod = tab_ft[n](ap, 0) + 1;
+		lenmod = tab_ft[n](ap, 0, NO_TRONC) + 1;
 		putnchar_flag(nbspace - lenmod, ' ');
 		ft_putchar('+');
 		if (nbspace > lenmod)
-			lenmod = tab_ft[n](aq, 1);
+			lenmod = tab_ft[n](aq, 1, NO_TRONC);
 		else
-			len = tab_ft[n](aq, 1);
+			len = tab_ft[n](aq, 1, NO_TRONC);
 	}
 	if (str[*i] == '%')
 	{
@@ -122,7 +122,7 @@ int		flag_more(const char *str, int *i, va_list ap, int (*tab_ft[NB_OPTIONS])(va
 	return (len);
 }
 
-int		flag_less(const char *str, int *i, va_list ap, int (*tab_ft[NB_OPTIONS])(va_list ap, int display))
+int		flag_less(const char *str, int *i, va_list ap, int (*tab_ft[NB_OPTIONS])(va_list ap, int display, int tronc))
 {
 	int n;
 	int nbspace;
@@ -131,23 +131,21 @@ int		flag_less(const char *str, int *i, va_list ap, int (*tab_ft[NB_OPTIONS])(va
 	va_list aq;
 
 	n = 0;
-	nbspace = 0;
 	lenmod = 0;
-	len = 0;
 	(*i)++;
 	nbspace = ft_atoi_printf(&str[*i]);
-	len += nbspace;
+	len = nbspace;
 	while (str[*i] >= '0' && str[*i] <= '9')
 		(*i)++;
 	if ((str[*i] >= 'a' && str[*i] <= 'z') || (str[*i] >= 'A' && str[*i] <= 'Z'))
 	{
 		n = tri_ft(str[*i]);
 		va_copy(aq, ap);
-		lenmod = tab_ft[n](ap, 0);
+		lenmod = tab_ft[n](ap, 0, NO_TRONC);
 		if (nbspace > lenmod)
-			lenmod = tab_ft[n](aq, 1);
+			lenmod = tab_ft[n](aq, 1, NO_TRONC);
 		else
-			len = tab_ft[n](aq, 1);
+			len = tab_ft[n](aq, 1, NO_TRONC);
 		putnchar_flag(nbspace - lenmod, ' ');
 	}
 	if (str[*i] == '%')
@@ -157,5 +155,19 @@ int		flag_less(const char *str, int *i, va_list ap, int (*tab_ft[NB_OPTIONS])(va
 	}
 	(*i)++;
 	va_end(aq);
+	return (len);
+}
+
+int		flag_dot(const char *str, int *i, va_list ap, int (*tab_ft[NB_OPTIONS])(va_list ap, int display, int tronc))
+{
+	int n;
+	int tronc;
+	int len;
+
+	tronc = ft_atoi_printf(&str[*i + 1]);
+	*i += len_nbr(tronc) + 1;
+	n = tri_ft(str[*i]);
+	len = tab_ft[n](ap, 1, tronc);
+	(*i)++;
 	return (len);
 }

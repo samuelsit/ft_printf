@@ -45,7 +45,7 @@ int lennb(long int n)
     return (i);
 }
 
-int ft_printf_ld(va_list ap, int display)
+int ft_printf_ld(va_list ap, int display, int tronc)
 {
     int len;
     long int n;

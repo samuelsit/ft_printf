@@ -7,7 +7,7 @@ int		tri_long_ft(char c)
 	char	*flag;
 
 	flag = "diox";
-	i = 12;
+	i = 11;
 	j = 0;
 	while (flag[j] != c && flag[i] != '\0')
 		j++;
@@ -19,7 +19,7 @@ int		tri_ft(char c)
 	int		i;
 	char	*flag;
 
-	flag = "discoxXpuSbf";
+	flag = "discoxXpuSb";
 	i = 0;
 	while (flag[i] != c && flag[i] != '\0')
 		i++;

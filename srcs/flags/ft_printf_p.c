@@ -1,6 +1,6 @@
 #include "../../includes/ft_printf.h"
 
-int ft_printf_p(va_list ap, int display)
+int ft_printf_p(va_list ap, int display, int tronc)
 {
 	long long adr;
 	int len;

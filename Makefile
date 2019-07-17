@@ -3,10 +3,9 @@ SRC	=	srcs/utils/ft_putchar.c	\
 		srcs/utils/ft_strlen.c	\
 		srcs/utils/ft_putnbr_uns_printf.c	\
 		srcs/utils/ft_putstr.c	\
+		srcs/utils/ft_putstr_tronc.c	\
 		srcs/utils/ft_putnbr_printf.c	\
 		srcs/utils/ft_atoi_printf.c	\
-		srcs/utils/ft_putnbr_printf_float.c	\
-		srcs/flags/ft_printf_f.c	\
 		srcs/flags/ft_printf_c.c	\
 		srcs/flags/ft_printf_d.c	\
 		srcs/flags/ft_printf_o.c	\
@@ -31,7 +30,7 @@ CC	=	gcc
 
 NAME	=	libftprintf.a
 
-CFLAGS	=	-Wall -Wextra -Werror
+#CFLAGS	=	-Wall -Wextra -Werror
 
 RM	=	rm -f
 
