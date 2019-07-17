@@ -6,7 +6,7 @@ int ft_printf_u(va_list ap, int display, int tronc)
 	int len;
 
 	len = 0;
-	nb = va_arg(ap, int);
-	len = ft_putnbr_uns_printf(nb, display);
+	nb = va_arg(ap, unsigned int);
+	ft_putnbr_uns_printf(nb, display, &len);
 	return (len);
 }

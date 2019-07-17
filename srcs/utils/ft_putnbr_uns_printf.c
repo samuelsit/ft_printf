@@ -1,14 +1,11 @@
 #include "../../includes/ft_printf.h"
 
-int ft_putnbr_uns_printf(unsigned int nb, int display)
+int ft_putnbr_uns_printf(unsigned int nb, int display, int *len)
 {
-	int len;
-
-	len = 0;
 	if (nb / 10)
-		ft_putnbr_uns_printf(nb / 10, display);
-	len++;
+		ft_putnbr_uns_printf(nb / 10, display, len);
+	(*len)++;
 	if (display == 1)
 		ft_putchar(nb % 10 + '0');
-	return (len);
+	return (*len);
 }

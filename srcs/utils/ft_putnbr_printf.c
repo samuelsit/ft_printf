@@ -1,6 +1,6 @@
 #include "../../includes/ft_printf.h"
 
-int	len_nbr(int n)
+int	len_nbr(long long n)
 {
 	int len;
 

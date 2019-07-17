@@ -9,10 +9,10 @@
 # define NO_TRONC   99999999
 
 int				ft_atoi_printf(const char *str);
-int	len_nbr(int n);
+int	len_nbr(long long n);
 size_t	ft_strlen(const char *s);
 int	ft_putnbr_printf(int n, int display);
-int	ft_putnbr_uns_printf(unsigned int nb, int display);
+int	ft_putnbr_uns_printf(unsigned int nb, int display, int *len);
 void	ft_putchar(char c);
 void	ft_putstr(char const *s);
 int		ft_putstr_tronc(char const *s, int tronc);
