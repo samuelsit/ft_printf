@@ -5,7 +5,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdarg.h>
-# define NB_OPTIONS 15
+# define NB_OPTIONS 18
 # define NO_TRONC   99999999
 
 int				ft_atoi_printf(const char *str);
@@ -31,9 +31,13 @@ int	ft_printf_s(va_list ap, int display, int tronc);
 int	ft_printf_u(va_list ap, int display, int tronc);
 int	ft_printf_xmaj(va_list ap, int display, int tronc);
 int	ft_printf_x(va_list ap, int display, int tronc);
+int ft_printf_ho(va_list ap, int display, int tronc);
+int ft_printf_hx(va_list ap, int display, int tronc);
+int ft_printf_hxmaj(va_list ap, int display, int tronc);
 int	ft_printf(char const *str, ...);
 int		tri_long_ft(char c);
 int		tri_ft(char c);
+int		tri_hash_ft(char c);
 void	tab(int (*tab_ft[NB_OPTIONS])(va_list ap, int display, int tronc));
 int	    flag_mod(int *i);
 int		flag_less(const char *str, int *i, va_list ap, int (*tab_ft[NB_OPTIONS])(va_list ap, int display, int tronc));
@@ -42,6 +46,7 @@ int		flag_nb(const char *str, int *i, va_list ap, int (*tab_ft[NB_OPTIONS])(va_l
 int		flag_long(const char *str, int *i, va_list ap, int (*tab_ft[NB_OPTIONS])(va_list ap, int display, int tronc));
 int		flag_letter(const char *str, int *i, va_list ap, int (*tab_ft[NB_OPTIONS])(va_list ap, int display, int tronc));
 int		flag_dot(const char *str, int *i, va_list ap, int (*tab_ft[NB_OPTIONS])(va_list ap, int display, int tronc));
+int		flag_hash(const char *str, int *i, va_list ap, int (*tab_ft[NB_OPTIONS])(va_list ap, int display, int tronc));
 int		putnchar_flag(int nb, char c);
 
 #endif

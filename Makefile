@@ -17,6 +17,9 @@ SRC	=	srcs/utils/ft_putchar.c	\
 		srcs/flags/ft_printf_ld.c	\
 		srcs/flags/ft_printf_lo.c	\
 		srcs/flags/ft_printf_lx.c	\
+		srcs/flags/ft_printf_ho.c	\
+		srcs/flags/ft_printf_hx.c	\
+		srcs/flags/ft_printf_hxmaj.c	\
 		srcs/bonus/ft_printf_b.c	\
 		srcs/bonus/ft_printf_smaj.c	\
 		srcs/ft_printf.c	\

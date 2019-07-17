@@ -180,3 +180,15 @@ int		flag_dot(const char *str, int *i, va_list ap, int (*tab_ft[NB_OPTIONS])(va_
 	(*i)++;
 	return (len);
 }
+
+int		flag_hash(const char *str, int *i, va_list ap, int (*tab_ft[NB_OPTIONS])(va_list ap, int display, int tronc))
+{
+	int n;
+	int len;
+
+	n = tri_hash_ft(str[*i + 1]);
+	printf("%d\n", n);
+	len = tab_ft[n](ap, 1, NO_TRONC);
+	*i += 2;
+	return (len);
+}

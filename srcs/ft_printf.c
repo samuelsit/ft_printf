@@ -18,10 +18,12 @@ int 	do_flag(const char *str, int *i, va_list ap, int (*tab_ft[NB_OPTIONS])(va_l
 	int len;
 
 	len = 0;
-	if (str[*i] == 'l' && str[*i + 1] > 32)
+	if (str[*i] == 'l')
 		len = flag_long(str, i, ap, tab_ft);
 	else if (str[*i] == '.')
 		len = flag_dot(str, i, ap, tab_ft);
+	else if (str[*i] == '#')
+		len = flag_hash(str, i, ap, tab_ft);
 	else if (str[*i] == '%')
 		len = flag_mod(i);
 	else if (str[*i] >= '0' && str[*i] <= '9')
