@@ -37,6 +37,19 @@ int		flag_long(const char *str, int *i, va_list ap, int (*tab_ft[NB_OPTIONS])(va
 	return (len);
 }
 
+int		flag_longlong(const char *str, int *i, va_list ap, int (*tab_ft[NB_OPTIONS])(va_list ap, int display, int tronc))
+{
+	int n;
+	int len;
+
+	n = 0;
+	len = 0;
+	n = tri_longlong_ft(str[*i + 2]);
+	len += tab_ft[n](ap, 1, NO_TRONC);
+	*i += 3;
+	return (len);
+}
+
 int		flag_nb(const char *str, int *i, va_list ap, int (*tab_ft[NB_OPTIONS])(va_list ap, int display, int tronc))
 {
 	int n;
@@ -181,12 +194,12 @@ int		flag_dot(const char *str, int *i, va_list ap, int (*tab_ft[NB_OPTIONS])(va_
 	return (len);
 }
 
-int		flag_hash(const char *str, int *i, va_list ap, int (*tab_ft[NB_OPTIONS])(va_list ap, int display, int tronc))
+int		flag_h(const char *str, int *i, va_list ap, int (*tab_ft[NB_OPTIONS])(va_list ap, int display, int tronc))
 {
 	int n;
 	int len;
 
-	n = tri_hash_ft(str[*i + 1]);
+	n = tri_h_ft(str[*i + 1]);
 	printf("%d\n", n);
 	len = tab_ft[n](ap, 1, NO_TRONC);
 	*i += 2;

@@ -17,7 +17,11 @@ void	tab(int (*tab_ft[NB_OPTIONS])(va_list ap, int display, int tronc))
 	tab_ft[12] = &ft_printf_ld;
 	tab_ft[13] = &ft_printf_lo;
 	tab_ft[14] = &ft_printf_lx;
-	tab_ft[15] = &ft_printf_ho;
-	tab_ft[16] = &ft_printf_hx;
-	tab_ft[17] = &ft_printf_hxmaj;
+	tab_ft[15] = &ft_printf_lld;
+	tab_ft[16] = &ft_printf_lld;
+	tab_ft[17] = &ft_printf_llo;
+	tab_ft[18] = &ft_printf_llx;
+	tab_ft[19] = &ft_printf_ho;
+	tab_ft[20] = &ft_printf_hx;
+	tab_ft[21] = &ft_printf_hxmaj;
 }

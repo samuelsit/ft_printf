@@ -20,10 +20,12 @@ int 	do_flag(const char *str, int *i, va_list ap, int (*tab_ft[NB_OPTIONS])(va_l
 	len = 0;
 	if (str[*i] == 'l')
 		len = flag_long(str, i, ap, tab_ft);
+	else if (str[*i] == 'l' && str[*i + 1] == 'l')
+		len = flag_longlong(str, i, ap, tab_ft);
 	else if (str[*i] == '.')
 		len = flag_dot(str, i, ap, tab_ft);
 	else if (str[*i] == '#')
-		len = flag_hash(str, i, ap, tab_ft);
+		len = flag_h(str, i, ap, tab_ft);
 	else if (str[*i] == '%')
 		len = flag_mod(i);
 	else if (str[*i] >= '0' && str[*i] <= '9')
@@ -48,14 +50,21 @@ int		if_mod(const char *str, int *i, va_list ap)
 {
 	int	(*tab_ft[NB_OPTIONS])(va_list ap, int display, int tronc);
 	int len;
+	int space_d;
 
+	space_d = 0;
 	len = 0;
 	tab(tab_ft);
 	(*i)++;
-	while (str[*i] == 32)
+	while (str[*i] == ' ')
 		(*i)++;
+	if (str[*i - 1] == ' ' && str[*i] == 'd')
+	{
+		ft_putchar(' ');
+		space_d = 1;
+	}
 	len = do_flag(str, i, ap, tab_ft);
-	return (len);
+	return (space_d == 1 ? len + 1 : len);
 }
 
 int		print(const char *str, va_list ap)

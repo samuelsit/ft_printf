@@ -1,12 +1,12 @@
 #include "../../includes/ft_printf.h"
 
-int ft_printf_x(va_list ap, int display, int tronc)
+int ft_printf_llx(va_list ap, int display, int tronc)
 {
-	unsigned int nb;
+	unsigned long long nb;
 	int len;
 
 	len = 0;
-	nb = va_arg(ap, unsigned int);
+	nb = va_arg(ap, long long);
 	len = ft_putnbr_base_printf(nb, "0123456789abcdef", display);
 	return (len);
 }

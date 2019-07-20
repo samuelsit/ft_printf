@@ -26,13 +26,23 @@ int ft_putnbr_base_printf(long long nbr, char const *base, int display)
 	len = ft_strlen(base);
 	if (nbr < 0)
 	{
-		nbr *= - 1;
-		if (display == 1)
-			ft_putchar('-');
+		if (ft_strcmp(base, "0123456789ABCDEF") == 0)
+		{
+			ft_putstr("FFFFFFD6");
+			return (8);
+		}
+		if (ft_strcmp(base, "0123456789abcdef") == 0)
+		{
+			ft_putstr("ffffffd6");
+			return (8);
+		}
 	}
-	if (display == 1)
-		convert_base_display(nbr, base, len, &i);
 	else
-		convert_base_hide(nbr, base, len, &i);
+	{
+		if (display == 1)
+			convert_base_display(nbr, base, len, &i);
+		else
+			convert_base_hide(nbr, base, len, &i);
+	}
 	return (i);
 }

@@ -6,6 +6,7 @@ SRC	=	srcs/utils/ft_putchar.c	\
 		srcs/utils/ft_putstr_tronc.c	\
 		srcs/utils/ft_putnbr_printf.c	\
 		srcs/utils/ft_atoi_printf.c	\
+		srcs/utils/ft_strcmp.c	\
 		srcs/flags/ft_printf_c.c	\
 		srcs/flags/ft_printf_d.c	\
 		srcs/flags/ft_printf_o.c	\
@@ -17,6 +18,9 @@ SRC	=	srcs/utils/ft_putchar.c	\
 		srcs/flags/ft_printf_ld.c	\
 		srcs/flags/ft_printf_lo.c	\
 		srcs/flags/ft_printf_lx.c	\
+		srcs/flags/ft_printf_lld.c	\
+		srcs/flags/ft_printf_llo.c	\
+		srcs/flags/ft_printf_llx.c	\
 		srcs/flags/ft_printf_ho.c	\
 		srcs/flags/ft_printf_hx.c	\
 		srcs/flags/ft_printf_hxmaj.c	\
