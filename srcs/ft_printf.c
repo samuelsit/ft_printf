@@ -25,7 +25,7 @@ int 	do_flag(const char *str, int *i, va_list ap, int (*tab_ft[NB_OPTIONS])(va_l
 	else if (str[*i] == '.')
 		len = flag_dot(str, i, ap, tab_ft);
 	else if (str[*i] == '#')
-		len = flag_h(str, i, ap, tab_ft);
+		len = flag_diese(str, i, ap, tab_ft);
 	else if (str[*i] == '%')
 		len = flag_mod(i);
 	else if (str[*i] >= '0' && str[*i] <= '9')

@@ -29,7 +29,6 @@ int		flag_long(const char *str, int *i, va_list ap, int (*tab_ft[NB_OPTIONS])(va
 	int n;
 	int len;
 
-	n = 0;
 	len = 0;
 	n = tri_long_ft(str[*i + 1]);
 	len += tab_ft[n](ap, 1, NO_TRONC);
@@ -47,6 +46,48 @@ int		flag_longlong(const char *str, int *i, va_list ap, int (*tab_ft[NB_OPTIONS]
 	n = tri_longlong_ft(str[*i + 2]);
 	len += tab_ft[n](ap, 1, NO_TRONC);
 	*i += 3;
+	return (len);
+}
+
+int		flag_diese(const char *str, int *i, va_list ap, int (*tab_ft[NB_OPTIONS])(va_list ap, int display, int tronc))
+{
+	int n;
+	int nbspace;
+	va_list aq;
+	int len;
+	int lenmod;
+	int is_zero;
+
+	n = 0;
+	len = 0;
+	nbspace = 0;
+	lenmod = 0;
+	nbspace = ft_atoi_printf(&str[*i]);
+	len = nbspace;
+	is_zero = 0;
+	(*i)++;
+	if (str[*i] == '0')
+		is_zero = 1;
+	while (str[*i] == ' ')
+		(*i)++;
+	while (str[*i] >= '0' && str[*i] <= '9')
+		(*i)++;
+	if ((str[*i] >= 'a' && str[*i] <= 'z') || (str[*i] >= 'A' && str[*i] <= 'Z'))
+	{
+		n = tri_diese_ft(str[*i]);
+		va_copy(aq, ap);
+		lenmod = tab_ft[n](ap, 0, NO_TRONC);
+		if (is_zero == 1)
+			putnchar_flag(nbspace - lenmod, '0');
+		else
+			putnchar_flag(nbspace - lenmod, ' ');
+		if (nbspace > lenmod)
+			lenmod = tab_ft[n](aq, 1, NO_TRONC);
+		else
+			len = tab_ft[n](aq, 1, NO_TRONC);
+	}
+	(*i)++;
+	va_end(aq);
 	return (len);
 }
 
@@ -191,17 +232,5 @@ int		flag_dot(const char *str, int *i, va_list ap, int (*tab_ft[NB_OPTIONS])(va_
 	n = tri_ft(str[*i]);
 	len = tab_ft[n](ap, 1, tronc);
 	(*i)++;
-	return (len);
-}
-
-int		flag_h(const char *str, int *i, va_list ap, int (*tab_ft[NB_OPTIONS])(va_list ap, int display, int tronc))
-{
-	int n;
-	int len;
-
-	n = tri_h_ft(str[*i + 1]);
-	printf("%d\n", n);
-	len = tab_ft[n](ap, 1, NO_TRONC);
-	*i += 2;
 	return (len);
 }

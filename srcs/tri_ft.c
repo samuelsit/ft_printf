@@ -1,6 +1,6 @@
 #include "../includes/ft_printf.h"
 
-int		tri_h_ft(char c)
+int		tri_diese_ft(char c)
 {
 	int		i;
 	int		j;

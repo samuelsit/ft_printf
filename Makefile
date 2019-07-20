@@ -21,9 +21,9 @@ SRC	=	srcs/utils/ft_putchar.c	\
 		srcs/flags/ft_printf_lld.c	\
 		srcs/flags/ft_printf_llo.c	\
 		srcs/flags/ft_printf_llx.c	\
-		srcs/flags/ft_printf_ho.c	\
-		srcs/flags/ft_printf_hx.c	\
-		srcs/flags/ft_printf_hxmaj.c	\
+		srcs/flags/ft_printf_dieseo.c	\
+		srcs/flags/ft_printf_diesex.c	\
+		srcs/flags/ft_printf_diesexmaj.c	\
 		srcs/bonus/ft_printf_b.c	\
 		srcs/bonus/ft_printf_smaj.c	\
 		srcs/ft_printf.c	\
@@ -33,7 +33,7 @@ SRC	=	srcs/utils/ft_putchar.c	\
 
 AC	=	ar rc
 
-CC	=	gcc
+CC	=	gcc -g3
 
 NAME	=	libftprintf.a
 
