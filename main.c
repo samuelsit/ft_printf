@@ -3,9 +3,9 @@
 
 int main()
 {
-    int real = printf("%llx", 4294967296);
+    int real = printf("%s", NULL);
     printf("\n");
-    int mine = ft_printf("%llx", 4294967296);
+    int mine = ft_printf("%s", NULL);
     printf("\n");
 
     printf("real =%d mine =%d\n", real, mine);

@@ -6,6 +6,11 @@ int ft_printf_s(va_list ap, int display, int tronc)
 	char	*str;
 
 	str = va_arg(ap, char *);
+	if (!str)
+	{
+		ft_putstr("(null)");
+		return (6);
+	}
 	if (tronc != NO_TRONC && tronc != 0)
 	{
 		if (display == 1)
