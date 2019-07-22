@@ -24,6 +24,18 @@ int		flag_letter(const char *str, int *i, va_list ap, int (*tab_ft[NB_OPTIONS])(
 	return (len);
 }
 
+int		flag_h(const char *str, int *i, va_list ap, int (*tab_ft[NB_OPTIONS])(va_list ap, int display, int tronc))
+{
+	int n;
+	int len;
+
+	len = 0;
+	n = tri_h_ft(str[*i + 1]);
+	len += tab_ft[n](ap, 1, NO_TRONC);
+	*i += 2;
+	return (len);
+}
+
 int		flag_long(const char *str, int *i, va_list ap, int (*tab_ft[NB_OPTIONS])(va_list ap, int display, int tronc))
 {
 	int n;
