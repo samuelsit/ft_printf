@@ -13,6 +13,19 @@ int		putnchar_flag(int nb, char c)
 	return (i);
 }
 
+int		is_arg_neg(const char *str, int *i, va_list ap)
+{
+	va_list aq;
+	int nb;
+
+	va_copy(aq, ap);
+	nb = va_arg(aq, int);
+	if (nb < 0)
+		return (1);
+	else
+		return (0);
+}
+
 int 	do_flag(const char *str, int *i, va_list ap, int (*tab_ft[NB_OPTIONS])(va_list ap, int display, int tronc))
 {
 	int len;
@@ -38,6 +51,8 @@ int 	do_flag(const char *str, int *i, va_list ap, int (*tab_ft[NB_OPTIONS])(va_l
 		len = flag_less(str, i, ap, tab_ft);
 	else if ((str[*i] >= 'a' && str[*i] <= 'z') || (str[*i] >= 'A' && str[*i] <= 'Z'))
 		len = flag_letter(str, i, ap, tab_ft);
+	else
+		(*i)++;
 	return (len);
 }
 
@@ -60,10 +75,13 @@ int		if_mod(const char *str, int *i, va_list ap)
 	(*i)++;
 	while (str[*i] == ' ')
 		(*i)++;
-	if (str[*i - 1] == ' ' && str[*i] == 'd')
+	if (!is_arg_neg(str, i, ap))
 	{
-		ft_putchar(' ');
-		space_d = 1;
+		if (str[*i - 1] == ' ' && str[*i] == 'd')
+		{
+			ft_putchar(' ');
+			space_d = 1;
+		}
 	}
 	len = do_flag(str, i, ap, tab_ft);
 	return (space_d == 1 ? len + 1 : len);

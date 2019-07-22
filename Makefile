@@ -18,12 +18,14 @@ SRC	=	srcs/utils/ft_putchar.c	\
 		srcs/flags/ft_printf_ld.c	\
 		srcs/flags/ft_printf_lo.c	\
 		srcs/flags/ft_printf_lx.c	\
+		srcs/flags/ft_printf_lu.c	\
 		srcs/flags/ft_printf_lld.c	\
 		srcs/flags/ft_printf_llo.c	\
 		srcs/flags/ft_printf_llx.c	\
 		srcs/flags/ft_printf_dieseo.c	\
 		srcs/flags/ft_printf_diesex.c	\
 		srcs/flags/ft_printf_diesexmaj.c	\
+		srcs/flags/ft_printf_hd.c	\
 		srcs/flags/ft_printf_ho.c	\
 		srcs/flags/ft_printf_hx.c	\
 		srcs/flags/ft_printf_hxmaj.c	\

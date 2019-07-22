@@ -155,28 +155,41 @@ int		flag_more(const char *str, int *i, va_list ap, int (*tab_ft[NB_OPTIONS])(va
 	int nbspace;
 	int lenmod;
 	int len;
+	int argz;
+	char sign;
 	va_list aq;
+	va_list az;
 
 	n = 0;
 	nbspace = 0;
 	lenmod = 0;
 	len = 0;
-	(*i)++;
+	argz = 0;
 	nbspace = ft_atoi_printf(&str[*i]);
 	len += nbspace;
-	while (str[*i] >= '0' && str[*i] <= '9')
+	while (str[*i] == ' ')
 		(*i)++;
-		while (str[*i] == 32)
-			(*i)++;
+	if (str[*i] == '+')
+		sign = '+';
+	if (str[*i] == '-')
+		sign = '-';
+	while (str[*i] == '+' || str[*i] == '-')
+		(*i)++;
+	while (str[*i] == ' ')
+		(*i)++;
 	if ((str[*i] >= 'a' && str[*i] <= 'z') || (str[*i] >= 'A' && str[*i] <= 'Z'))
 	{
-
 		n = tri_ft(str[*i]);
 		va_copy(aq, ap);
+		va_copy(az, ap);
 		lenmod = tab_ft[n](ap, 0, NO_TRONC) + 1;
 		putnchar_flag(nbspace - lenmod, ' ');
-		ft_putchar('+');
-		len++;
+		argz = va_arg(az, int);
+		if (argz >= 0 && sign == '+')
+		{
+			ft_putchar('+');
+			len++;
+		}
 		if (nbspace > lenmod)
 			lenmod = tab_ft[n](aq, 1, NO_TRONC);
 		else

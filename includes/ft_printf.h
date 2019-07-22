@@ -5,7 +5,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdarg.h>
-# define NB_OPTIONS 26
+# define NB_OPTIONS 29
 # define NO_TRONC   99999999
 
 int				ft_atoi_printf(const char *str);
@@ -25,6 +25,7 @@ int ft_printf_lld(va_list ap, int display, int tronc);
 int ft_printf_lx(va_list ap, int display, int tronc);
 int ft_printf_lo(va_list ap, int display, int tronc);
 int ft_printf_ld(va_list ap, int display, int tronc);
+int ft_printf_lu(va_list ap, int display, int tronc);
 int	ft_printf_b(va_list ap, int display, int tronc);
 int	ft_printf_c(va_list ap, int display, int tronc);
 int	ft_printf_d(va_list ap, int display, int tronc);
@@ -40,6 +41,7 @@ int ft_printf_diesex(va_list ap, int display, int tronc);
 int ft_printf_diesexmaj(va_list ap, int display, int tronc);
 int ft_printf_zmaj(va_list ap, int display, int tronc);
 int ft_printf_ho(va_list ap, int display, int tronc);
+int ft_printf_hd(va_list ap, int display, int tronc);
 int ft_printf_hx(va_list ap, int display, int tronc);
 int ft_printf_hxmaj(va_list ap, int display, int tronc);
 int	ft_printf(char const *str, ...);
