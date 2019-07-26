@@ -29,16 +29,17 @@ void	tab(int (*tab_ft[NB_OPTIONS])(va_list ap, int display, int tronc))
 	tab_ft[18] = &ft_printf_lld;
 	tab_ft[19] = &ft_printf_llo;
 	tab_ft[20] = &ft_printf_llx;
+	tab_ft[21] = &ft_printf_llxmaj;
 
 //%#
-	tab_ft[21] = &ft_printf_dieseo;
-	tab_ft[22] = &ft_printf_diesex;
-	tab_ft[23] = &ft_printf_diesexmaj;
+	tab_ft[22] = &ft_printf_dieseo;
+	tab_ft[23] = &ft_printf_diesex;
+	tab_ft[24] = &ft_printf_diesexmaj;
 
 //%h
-	tab_ft[24] = &ft_printf_hd;
 	tab_ft[25] = &ft_printf_hd;
-	tab_ft[26] = &ft_printf_ho;
-	tab_ft[27] = &ft_printf_hx;
-	tab_ft[28] = &ft_printf_hxmaj;
+	tab_ft[26] = &ft_printf_hd;
+	tab_ft[27] = &ft_printf_ho;
+	tab_ft[28] = &ft_printf_hx;
+	tab_ft[29] = &ft_printf_hxmaj;
 }

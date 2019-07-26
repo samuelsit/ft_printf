@@ -200,6 +200,7 @@ int		flag_more(const char *str, int *i, va_list ap, int (*tab_ft[NB_OPTIONS])(va
 	}
 	(*i)++;
 	va_end(aq);
+	va_end(az);
 	return (len);
 }
 
@@ -289,5 +290,7 @@ int		flag_dot(const char *str, int *i, va_list ap, int (*tab_ft[NB_OPTIONS])(va_
 			len = tab_ft[n](aq, 1, tronc);
 	}
 	(*i)++;
+	va_end(aq);
+	va_end(az);
 	return (len);
 }
