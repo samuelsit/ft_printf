@@ -29,8 +29,10 @@ int		is_arg_neg(const char *str, int *i, va_list ap)
 int 	do_flag(const char *str, int *i, va_list ap, int (*tab_ft[NB_OPTIONS])(va_list ap, int display, int tronc))
 {
 	int len;
+	int j;
 
 	len = 0;
+	j = *i;
 	if (str[*i] == 'l')
 		len = flag_long(str, i, ap, tab_ft);
 	else if (str[*i] == 'l' && str[*i + 1] == 'l')
@@ -44,7 +46,14 @@ int 	do_flag(const char *str, int *i, va_list ap, int (*tab_ft[NB_OPTIONS])(va_l
 	else if (str[*i] == '%')
 		len = flag_mod(i);
 	else if (str[*i] >= '0' && str[*i] <= '9')
-		len = flag_nb(str, i, ap, tab_ft);
+	{
+		while (str[j] >= '0' && str[j] <= '9')
+			j++;
+		if (str[j] == '.')
+			len = flag_dot(str, i, ap, tab_ft);
+		else
+			len = flag_nb(str, i, ap, tab_ft);
+	}
 	else if (str[*i] == '+')
 		len = flag_more(str, i, ap, tab_ft);
 	else if (str[*i] == '-')

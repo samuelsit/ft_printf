@@ -2,13 +2,9 @@
 
 int		flag_mod(int *i)
 {
-	int len;
-
-	len = 0;
 	ft_putchar('%');
-	len++;
 	(*i)++;
-	return (len);
+	return (1);
 }
 
 int		flag_letter(const char *str, int *i, va_list ap, int (*tab_ft[NB_OPTIONS])(va_list ap, int display, int tronc))
@@ -246,16 +242,38 @@ int		flag_dot(const char *str, int *i, va_list ap, int (*tab_ft[NB_OPTIONS])(va_
 	int n;
 	int tronc;
 	int len;
+	int space;
+	va_list aq;
+	int lenmod;
 
-	tronc = ft_atoi_printf(&str[*i + 1]);
-	*i += len_nbr(tronc) + 1;
-	if (str[*i] == '%')
+	space = 0;
+	lenmod = 0;
+	if (str[*i] >= '0' && str[*i] <= '9')
 	{
-		ft_putchar('%');
-		return (1);
+		space = ft_atoi_printf(&str[*i]);
+		while (str[*i] >= '0' && str[*i] <= '9')
+			(*i)++;
+		len = space;
 	}
-	n = tri_ft(str[*i]);
-	len = tab_ft[n](ap, 1, tronc);
+	(*i)++;
+	tronc = ft_atoi_printf(&str[*i]);
+	while (str[*i] >= '0' && str[*i] <= '9')
+		(*i)++;
+	if (str[*i] == '%')
+		return (flag_mod(i));
+	if ((str[*i] >= 'a' && str[*i] <= 'z') || (str[*i] >= 'A' && str[*i] <= 'Z'))
+	{
+		n = tri_ft(str[*i]);
+		va_copy(aq, ap);
+		lenmod = tab_ft[n](ap, 0, tronc);
+		if (space > lenmod)
+		{
+			putnchar_flag(space - lenmod, ' ');
+			lenmod = tab_ft[n](aq, 1, tronc);
+		}
+		else
+			len = tab_ft[n](aq, 1, tronc);
+	}
 	(*i)++;
 	return (len);
 }

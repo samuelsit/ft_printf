@@ -26,7 +26,7 @@ int				ft_atoi_printf(const char *str)
 		negative = 1;
 	if (str[i] == '+' || str[i] == '-')
 		i++;
-	while (i < 10 && str[i] && (str[i] >= '0') && (str[i] <= '9'))
+	while (i < 10 && str[i] && str[i] != '.' && (str[i] >= '0') && (str[i] <= '9'))
 	{
 		nbr *= 10;
 		nbr += (int)str[i] - '0';

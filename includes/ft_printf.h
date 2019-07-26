@@ -15,7 +15,7 @@ int	ft_putnbr_printf(int n, int display);
 int	ft_putnbr_uns_printf(unsigned int nb, int display, int *len);
 void	ft_putchar(char c);
 void	ft_putstr(char const *s);
-int		ft_putstr_tronc(char const *s, int tronc);
+int		ft_putstr_tronc(char const *s, int tronc, int display);
 int		ft_strcmp(const char *s1, const char *s2);
 int ft_putnbr_base_printf(long long nbr, char const *base, int display);
 int	ft_putnbr_printf_float(double n, int display);
