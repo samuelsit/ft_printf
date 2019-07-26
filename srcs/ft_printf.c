@@ -34,9 +34,12 @@ int 	do_flag(const char *str, int *i, va_list ap, int (*tab_ft[NB_OPTIONS])(va_l
 	len = 0;
 	j = *i;
 	if (str[*i] == 'l')
-		len = flag_long(str, i, ap, tab_ft);
-	else if (str[*i] == 'l' && str[*i + 1] == 'l')
-		len = flag_longlong(str, i, ap, tab_ft);
+	{
+		if (str[*i + 1] == 'l')
+			len = flag_longlong(str, i, ap, tab_ft);
+		else
+			len = flag_long(str, i, ap, tab_ft);
+	}
 	else if (str[*i] == 'h')
 		len = flag_h(str, i, ap, tab_ft);
 	else if (str[*i] == '.')

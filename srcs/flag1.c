@@ -51,9 +51,11 @@ int		flag_longlong(const char *str, int *i, va_list ap, int (*tab_ft[NB_OPTIONS]
 
 	n = 0;
 	len = 0;
-	n = tri_longlong_ft(str[*i + 2]);
+	while (str[*i] == 'l')
+		(*i)++;
+	n = tri_longlong_ft(str[*i]);
 	len += tab_ft[n](ap, 1, NO_TRONC);
-	*i += 3;
+	(*i)++;
 	return (len);
 }
 

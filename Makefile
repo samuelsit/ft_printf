@@ -22,6 +22,7 @@ SRC	=	srcs/utils/ft_putchar.c	\
 		srcs/flags/ft_printf_lld.c	\
 		srcs/flags/ft_printf_llo.c	\
 		srcs/flags/ft_printf_llx.c	\
+		srcs/flags/ft_printf_llxmaj.c	\
 		srcs/flags/ft_printf_dieseo.c	\
 		srcs/flags/ft_printf_diesex.c	\
 		srcs/flags/ft_printf_diesexmaj.c	\

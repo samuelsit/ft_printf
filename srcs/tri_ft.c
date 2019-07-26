@@ -7,7 +7,7 @@ int		tri_h_ft(char c)
 	char	*flag;
 
 	flag = "dioxX";
-	i = 24;
+	i = 25;
 	j = 0;
 	while (flag[j] != c && flag[i] != '\0')
 		j++;
@@ -21,7 +21,7 @@ int		tri_diese_ft(char c)
 	char	*flag;
 
 	flag = "oxX";
-	i = 21;
+	i = 22;
 	j = 0;
 	while (flag[j] != c && flag[i] != '\0')
 		j++;
@@ -34,7 +34,7 @@ int		tri_longlong_ft(char c)
 	int		j;
 	char	*flag;
 
-	flag = "diox";
+	flag = "dioxX";
 	i = 17;
 	j = 0;
 	while (flag[j] != c && flag[i] != '\0')

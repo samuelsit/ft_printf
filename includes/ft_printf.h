@@ -20,6 +20,7 @@ int		ft_strcmp(const char *s1, const char *s2);
 int ft_putnbr_base_printf(long long nbr, char const *base, int display);
 int	ft_putnbr_printf_float(double n, int display);
 int ft_printf_llx(va_list ap, int display, int tronc);
+int ft_printf_llxmaj(va_list ap, int display, int tronc);
 int ft_printf_llo(va_list ap, int display, int tronc);
 int ft_printf_lld(va_list ap, int display, int tronc);
 int ft_printf_lx(va_list ap, int display, int tronc);
