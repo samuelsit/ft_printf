@@ -246,6 +246,7 @@ int		flag_dot(const char *str, int *i, va_list ap, int (*tab_ft[NB_OPTIONS])(va_
 	int len;
 	int space;
 	va_list aq;
+	va_list az;
 	int lenmod;
 
 	space = 0;
@@ -266,6 +267,17 @@ int		flag_dot(const char *str, int *i, va_list ap, int (*tab_ft[NB_OPTIONS])(va_
 	if ((str[*i] >= 'a' && str[*i] <= 'z') || (str[*i] >= 'A' && str[*i] <= 'Z'))
 	{
 		n = tri_ft(str[*i]);
+		if (n != 2 && n != 3 && n != 7)
+		{
+			va_copy(az, ap);
+			lenmod = va_arg(az, int);
+			if (lenmod == 0)
+			{
+				while ((str[*i] >= 'a' && str[*i] <= 'z') || (str[*i] >= 'A' && str[*i] <= 'Z'))
+					(*i)++;
+				return (0);
+			}
+		}
 		va_copy(aq, ap);
 		lenmod = tab_ft[n](ap, 0, tronc);
 		if (space > lenmod)

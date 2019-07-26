@@ -2,7 +2,7 @@
 
 int ft_printf_llx(va_list ap, int display, int tronc)
 {
-	unsigned long long nb;
+	long long int nb;
 	int len;
 
 	len = 0;
