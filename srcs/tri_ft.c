@@ -9,7 +9,7 @@ int		tri_h_ft(char c)
 	flag = "dioxX";
 	i = 25;
 	j = 0;
-	while (flag[j] != c && flag[i] != '\0')
+	while (flag[j] != c && flag[j] != '\0')
 		j++;
 	return (i + j);
 }
@@ -23,8 +23,11 @@ int		tri_diese_ft(char c)
 	flag = "oxX";
 	i = 22;
 	j = 0;
-	while (flag[j] != c && flag[i] != '\0')
+	while (flag[j] != c && flag[j] != '\0')
 		j++;
+	//	ft_putstr("ft_tri\n");
+	//	ft_putchar(c);
+	//	ft_putchar('\n');
 	return (i + j);
 }
 
@@ -37,7 +40,7 @@ int		tri_longlong_ft(char c)
 	flag = "dioxX";
 	i = 17;
 	j = 0;
-	while (flag[j] != c && flag[i] != '\0')
+	while (flag[j] != c && flag[j] != '\0')
 		j++;
 	return (i + j);
 }
@@ -51,7 +54,7 @@ int		tri_long_ft(char c)
 	flag = "dioxu";
 	i = 12;
 	j = 0;
-	while (flag[j] != c && flag[i] != '\0')
+	while (flag[j] != c && flag[j] != '\0')
 		j++;
 	return (i + j);
 }

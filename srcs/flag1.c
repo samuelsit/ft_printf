@@ -72,10 +72,11 @@ int		flag_diese(const char *str, int *i, va_list ap, int (*tab_ft[NB_OPTIONS])(v
 	len = 0;
 	nbspace = 0;
 	lenmod = 0;
-	nbspace = ft_atoi_printf(&str[*i]);
-	len = nbspace;
 	is_zero = 0;
 	(*i)++;
+	nbspace = ft_atoi_printf(&str[*i]);
+//	printf("str[*i]=%s; nbspace=%d\n", &str[*i], nbspace);
+	len = nbspace;
 	if (str[*i] == '0')
 		is_zero = 1;
 	while (str[*i] == ' ')
@@ -87,14 +88,15 @@ int		flag_diese(const char *str, int *i, va_list ap, int (*tab_ft[NB_OPTIONS])(v
 		n = tri_diese_ft(str[*i]);
 		va_copy(aq, ap);
 		lenmod = tab_ft[n](ap, 0, NO_TRONC);
+		//printf("nbspace = %d, lenmod = %d\n", nbspace, lenmod);
 		if (is_zero == 1)
 			putnchar_flag(nbspace - lenmod, '0');
 		else
 			putnchar_flag(nbspace - lenmod, ' ');
-		if (nbspace > lenmod)
-			lenmod = tab_ft[n](aq, 1, NO_TRONC);
-		else
-			len = tab_ft[n](aq, 1, NO_TRONC);
+			if (nbspace > lenmod)
+				lenmod = tab_ft[n](aq, 1, NO_TRONC);
+			else
+				len = tab_ft[n](aq, 1, NO_TRONC);
 	}
 	(*i)++;
 	va_end(aq);

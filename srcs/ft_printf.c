@@ -33,6 +33,9 @@ int 	do_flag(const char *str, int *i, va_list ap, int (*tab_ft[NB_OPTIONS])(va_l
 
 	len = 0;
 	j = *i;
+//	ft_putstr("doflag\n");
+//	ft_putchar(str[*i]);
+//	ft_putchar('\n');
 	if (str[*i] == 'l')
 	{
 		if (str[*i + 1] == 'l')

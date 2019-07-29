@@ -5,6 +5,7 @@ int ft_printf_diesex(va_list ap, int display, int tronc)
 	int nb;
 	int len;
 
+//ft_putstr("#x\n");
 	len = 0;
 	nb = va_arg(ap, int);
 	if (nb == 0)
